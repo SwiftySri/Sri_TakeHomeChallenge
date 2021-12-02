@@ -9,6 +9,7 @@ import Foundation
 
 class TransactionListViewModel: ObservableObject {
     private (set) var transactions: [TransactionModel] = ModelData.sampleTransactions
+    
     @Published var selectedCategory: TransactionModel.Category? {
         didSet {
             if let chosenCategory = selectedCategory {
@@ -18,6 +19,19 @@ class TransactionListViewModel: ObservableObject {
             } else {
                 transactions = ModelData.sampleTransactions
             }
+            computeSum()
         }
+    }
+    
+    @Published var displaySum: String = ""
+    
+    init() {
+        computeSum()
+    }
+    
+    private func computeSum() {
+        var runningSum = 0.0
+        runningSum = transactions.reduce(0.0) { $0 + $1.amount }
+        displaySum = String(format: "%.2f", runningSum)
     }
 }
