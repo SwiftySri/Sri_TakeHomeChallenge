@@ -10,7 +10,7 @@ import SwiftUI
 struct SummaryView: View {
     
     @Binding var selectedCatgory: TransactionModel.Category?
-    @Binding var sum: String
+    @Binding var sum: Double
 
     var body: some View {
         HStack(alignment: .bottom) {
@@ -21,7 +21,7 @@ struct SummaryView: View {
                 Text(selectedCatgory?.rawValue ?? "all")
                     .font(.headline)
                     .foregroundColor(selectedCatgory?.color ?? .accentColor)
-                Text("\(sum)")
+                Text("\(sum.currencyFormat)")
                     .foregroundColor(Color.accentColor)
                     .font(.bold(.body)())
             }
@@ -36,6 +36,6 @@ struct SummaryView: View {
 
 struct SummaryView_Previews: PreviewProvider {
     static var previews: some View {
-        SummaryView(selectedCatgory: .constant(nil), sum: .constant("500.45"))
+        SummaryView(selectedCatgory: .constant(nil), sum: .constant(500.45))
     }
 }

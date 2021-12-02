@@ -8,11 +8,11 @@
 import SwiftUI
 
 struct InsightsView: View {
-    let transactions: [TransactionModel] = ModelData.sampleTransactions
-    
+    @StateObject var viewmodel:TransactionsViewModel
+
     var body: some View {
         List {
-            RingView(transactions: transactions)
+            RingView(viewmodel: viewmodel)
                 .scaledToFit()
             
             ForEach(TransactionModel.Category.allCases) { category in
@@ -21,8 +21,7 @@ struct InsightsView: View {
                         .font(.headline)
                         .foregroundColor(category.color)
                     Spacer()
-                    // TODO: calculate cummulative expense for each category
-                    Text("$0.0")
+                    Text(viewmodel.categoryTotalMap[category]?.currencyFormat ?? "0.0")
                         .bold()
                         .secondary()
                 }
@@ -36,7 +35,7 @@ struct InsightsView: View {
 #if DEBUG
 struct InsightsView_Previews: PreviewProvider {
     static var previews: some View {
-        InsightsView()
+        InsightsView(viewmodel: TransactionsViewModel())
             .previewLayout(.sizeThatFits)
     }
 }

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct TransactionListView: View {
-    @StateObject private var viewmodel = TransactionListViewModel()
+    @StateObject var viewmodel:TransactionsViewModel
 
     var body: some View {
         VStack(spacing: 0) {
@@ -22,7 +22,7 @@ struct TransactionListView: View {
                         .animation(.spring(), value: viewmodel.ignoredTransactions)
                 }
             }
-            SummaryView(selectedCatgory: $viewmodel.selectedCategory, sum: $viewmodel.displaySum)
+            SummaryView(selectedCatgory: $viewmodel.selectedCategory, sum: $viewmodel.listTotal)
         }
         .animation(.spring(), value: viewmodel.selectedCategory)
         .listStyle(PlainListStyle())
@@ -43,7 +43,7 @@ struct TransactionListView: View {
 #if DEBUG
 struct TransactionListView_Previews: PreviewProvider {
     static var previews: some View {
-        TransactionListView()
+        TransactionListView(viewmodel: TransactionsViewModel())
     }
 }
 #endif

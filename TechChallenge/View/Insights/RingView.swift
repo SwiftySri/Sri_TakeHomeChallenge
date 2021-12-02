@@ -10,20 +10,15 @@ import SwiftUI
 fileprivate typealias Category = TransactionModel.Category
 
 struct RingView: View {
-    let transactions: [TransactionModel]
-    
+    @StateObject var viewmodel:TransactionsViewModel
+
     private func ratio(for categoryIndex: Int) -> Double {
-        // TODO: calculate ratio for each category according to cummulative expense
-        
-        // Returning sample value
-        0.2
+        guard let category = Category[categoryIndex] else { return 0.0 }
+        return (viewmodel.categoryTotalMap[category] ?? 0.0) / viewmodel.transactionsTotal
     }
     
     private func offset(for categoryIndex: Int) -> Double {
-        // TODO: calculate offset for each category according to cummulative expense
-        
-        // Returning sample value
-        Double(categoryIndex) * 0.2
+        (0..<categoryIndex).reduce(into: 0.0) { $0 += ratio(for: $1) }
     }
 
     private func gradient(for categoryIndex: Int) -> AngularGradient {
@@ -129,7 +124,7 @@ struct RingView_Previews: PreviewProvider {
             sampleRing
                 .scaledToFit()
             
-            RingView(transactions: ModelData.sampleTransactions)
+            RingView(viewmodel: TransactionsViewModel())
                 .scaledToFit()
         }
         .padding()

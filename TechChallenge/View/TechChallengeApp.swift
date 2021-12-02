@@ -10,18 +10,20 @@ import SwiftUI
 @main
 struct TechChallengeApp: App {
 
+    private let txnVM = TransactionsViewModel()
+
     var body: some Scene {
         WindowGroup {
             TabView {
                 NavigationView {
-                    TransactionListView()
+                    TransactionListView(viewmodel: txnVM)
                 }
                 .tabItem {
                     Label("Transactions", systemImage: "list.bullet")
                 }
                 
                 NavigationView {
-                    InsightsView()
+                    InsightsView(viewmodel: txnVM)
                 }
                 .tabItem {
                     Label("Insights", systemImage: "chart.pie.fill")
