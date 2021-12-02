@@ -9,6 +9,7 @@ import SwiftUI
 
 struct TransactionView: View {
     let transaction: TransactionModel
+    @State private var pinned: Bool = true
     
     var body: some View {
         VStack {
@@ -17,38 +18,45 @@ struct TransactionView: View {
                     .font(.headline)
                     .foregroundColor(transaction.category.color)
                 Spacer()
+                Image(systemName: pinned ? "pin.fill" : "pin.slash.fill")
             }
             
-            HStack {
-                transaction.image
-                    .resizable()
-                    .frame(
-                        width: 60.0,
-                        height: 60.0,
-                        alignment: .top
-                    )
-                
-                VStack(alignment: .leading) {
-                    Text(transaction.name)
-                        .secondary()
-                    Text(transaction.accountName)
-                        .tertiary()
-                }
-                
-                Spacer()
-                
-                VStack(alignment: .trailing) {
-                    Text("$\(transaction.amount.formatted())")
-                        .bold()
-                        .secondary()
-                    Text(transaction.date.formatted)
-                        .tertiary()
+            if pinned {
+                HStack {
+                    transaction.image
+                        .resizable()
+                        .frame(
+                            width: 60.0,
+                            height: 60.0,
+                            alignment: .top
+                        )
+                    
+                    VStack(alignment: .leading) {
+                        Text(transaction.name)
+                            .secondary()
+                        Text(transaction.accountName)
+                            .tertiary()
+                    }
+                    
+                    Spacer()
+                    
+                    VStack(alignment: .trailing) {
+                        Text("$\(transaction.amount.formatted())")
+                            .bold()
+                            .secondary()
+                        Text(transaction.date.formatted)
+                            .tertiary()
+                    }
                 }
             }
         }
         .padding(8.0)
         .background(Color.accentColor.opacity(0.1))
         .clipShape(RoundedRectangle(cornerRadius: 8.0))
+        .onTapGesture {
+            pinned.toggle()
+        }
+        .animation(.linear(duration: 0.35), value: pinned)
     }
 }
 

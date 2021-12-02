@@ -18,9 +18,10 @@ struct TransactionListView: View {
                     TransactionView(transaction: transaction)
                 }
             }
+            .listRowBackground(Color.clear)
             SummaryView(selectedCatgory: $viewmodel.selectedCategory, sum: $viewmodel.displaySum)
         }
-        .animation(.easeIn, value: viewmodel.transactions.count)
+        .animation(.easeIn, value: viewmodel.selectedCategory)
         .listStyle(PlainListStyle())
         .navigationBarTitleDisplayMode(.inline)
         .navigationTitle("Transactions")
