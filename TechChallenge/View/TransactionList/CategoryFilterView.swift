@@ -15,10 +15,8 @@ struct CategoryFilterView: View {
                     .buttonStyle(FilterButtonStyle(color: .black))
                 
                 ForEach(TransactionModel.Category.allCases) { eachCategory in
-                    Button(eachCategory.rawValue) {
-                        
-                    }
-                    .buttonStyle(FilterButtonStyle(color: eachCategory.color))
+                    Button(eachCategory.rawValue) {}
+                        .buttonStyle(FilterButtonStyle(color: eachCategory.color))
                 }
             }
             .padding()

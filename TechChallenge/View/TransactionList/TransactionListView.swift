@@ -19,7 +19,7 @@ struct TransactionListView: View {
                 }
             }
         }
-        .animation(.easeIn)
+        .animation(.easeIn, value: transactions.count)
         .listStyle(PlainListStyle())
         .navigationBarTitleDisplayMode(.inline)
         .navigationTitle("Transactions")

@@ -8,16 +8,15 @@
 import SwiftUI
 
 struct FilterButtonStyle: ButtonStyle {
-    typealias Body = AnyView
-    
     let color: Color
-    func makeBody(configuration: Self.Configuration) -> Self.Body {
-        AnyView(configuration.label
-                    .foregroundColor(.white)
-                    .font(.bold(.title2)())
+    func makeBody(configuration: Self.Configuration) -> some View {
+        configuration.label
+            .foregroundColor(.white)
+            .font(.bold(.title2)())
             .padding(.horizontal)
             .padding(.vertical, 5)
-            .background(color)
-            .clipShape(Capsule()))
+            .background(color, in: Capsule())
+            .opacity(configuration.isPressed ? 0.5 : 1.0)
+            .scaleEffect(configuration.isPressed ? 0.8 : 1.0)
     }
 }

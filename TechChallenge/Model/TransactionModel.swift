@@ -9,7 +9,7 @@ import Foundation
 
 // MARK: - TransactionModel
 
-struct TransactionModel {
+struct TransactionModel: Equatable {
     enum Category: String, CaseIterable {
         case food
         case health
