@@ -28,6 +28,7 @@
 		91E4DC6627584DF500DE6B45 /* ButtonStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E4DC6527584DF500DE6B45 /* ButtonStyles.swift */; };
 		91E4DC6827584E5100DE6B45 /* CategoryFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E4DC6727584E5100DE6B45 /* CategoryFilterView.swift */; };
 		91E4DC6B27585D1100DE6B45 /* TransactionListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E4DC6A27585D1100DE6B45 /* TransactionListViewModel.swift */; };
+		91E4DC6D27586D1C00DE6B45 /* SummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E4DC6C27586D1C00DE6B45 /* SummaryView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +67,7 @@
 		91E4DC6527584DF500DE6B45 /* ButtonStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonStyles.swift; sourceTree = "<group>"; };
 		91E4DC6727584E5100DE6B45 /* CategoryFilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryFilterView.swift; sourceTree = "<group>"; };
 		91E4DC6A27585D1100DE6B45 /* TransactionListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionListViewModel.swift; sourceTree = "<group>"; };
+		91E4DC6C27586D1C00DE6B45 /* SummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +143,7 @@
 				3CE226B826B0548C00B3D085 /* TransactionView.swift */,
 				3CE226B426B0523C00B3D085 /* TransactionListView.swift */,
 				91E4DC6727584E5100DE6B45 /* CategoryFilterView.swift */,
+				91E4DC6C27586D1C00DE6B45 /* SummaryView.swift */,
 			);
 			path = TransactionList;
 			sourceTree = "<group>";
@@ -330,6 +333,7 @@
 				3C296ED126B404A5006DF667 /* Path.swift in Sources */,
 				91E4DC6627584DF500DE6B45 /* ButtonStyles.swift in Sources */,
 				3CE226B926B0548C00B3D085 /* TransactionView.swift in Sources */,
+				91E4DC6D27586D1C00DE6B45 /* SummaryView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

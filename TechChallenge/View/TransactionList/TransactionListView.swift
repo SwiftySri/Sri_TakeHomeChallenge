@@ -18,6 +18,7 @@ struct TransactionListView: View {
                     TransactionView(transaction: transaction)
                 }
             }
+            SummaryView(selectedCatgory: $viewmodel.selectedCategory, sum: .constant("0.0"))
         }
         .animation(.easeIn, value: viewmodel.transactions.count)
         .listStyle(PlainListStyle())
