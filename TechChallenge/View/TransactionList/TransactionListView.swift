@@ -8,18 +8,18 @@
 import SwiftUI
 
 struct TransactionListView: View {
-    let transactions: [TransactionModel] = ModelData.sampleTransactions
+    @StateObject private var viewmodel = TransactionListViewModel()
     
     var body: some View {
         VStack {
-            CategoryFilterView()
+            CategoryFilterView(selectedCatgory: $viewmodel.selectedCategory)
             List {
-                ForEach(transactions) { transaction in
+                ForEach(viewmodel.transactions) { transaction in
                     TransactionView(transaction: transaction)
                 }
             }
         }
-        .animation(.easeIn, value: transactions.count)
+        .animation(.easeIn, value: viewmodel.transactions.count)
         .listStyle(PlainListStyle())
         .navigationBarTitleDisplayMode(.inline)
         .navigationTitle("Transactions")

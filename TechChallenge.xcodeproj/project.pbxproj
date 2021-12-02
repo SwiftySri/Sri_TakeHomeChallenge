@@ -27,6 +27,7 @@
 		3CE226C726B2E41E00B3D085 /* InsightsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE226C626B2E41E00B3D085 /* InsightsView.swift */; };
 		91E4DC6627584DF500DE6B45 /* ButtonStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E4DC6527584DF500DE6B45 /* ButtonStyles.swift */; };
 		91E4DC6827584E5100DE6B45 /* CategoryFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E4DC6727584E5100DE6B45 /* CategoryFilterView.swift */; };
+		91E4DC6B27585D1100DE6B45 /* TransactionListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E4DC6A27585D1100DE6B45 /* TransactionListViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +65,7 @@
 		3CE226C626B2E41E00B3D085 /* InsightsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsightsView.swift; sourceTree = "<group>"; };
 		91E4DC6527584DF500DE6B45 /* ButtonStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonStyles.swift; sourceTree = "<group>"; };
 		91E4DC6727584E5100DE6B45 /* CategoryFilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryFilterView.swift; sourceTree = "<group>"; };
+		91E4DC6A27585D1100DE6B45 /* TransactionListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionListViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +118,7 @@
 			children = (
 				3C3FCAAE26C57C650092AB11 /* README.md */,
 				3CE226C926B2E43000B3D085 /* View */,
+				91E4DC6927585CE700DE6B45 /* ViewModel */,
 				3CE226CA26B2E43B00B3D085 /* Model */,
 				3CE2268726B007D300B3D085 /* Assets.xcassets */,
 				3CE2268C26B007D300B3D085 /* Info.plist */,
@@ -192,6 +195,14 @@
 				3C296ED026B404A5006DF667 /* Path.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		91E4DC6927585CE700DE6B45 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				91E4DC6A27585D1100DE6B45 /* TransactionListViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -312,6 +323,7 @@
 				3CE226BF26B05EB100B3D085 /* ViewModifiers.swift in Sources */,
 				3C296ECF26B31193006DF667 /* Angle.swift in Sources */,
 				3C3FCAAD26C57A7D0092AB11 /* TransactionModel+UI.swift in Sources */,
+				91E4DC6B27585D1100DE6B45 /* TransactionListViewModel.swift in Sources */,
 				3CE226B526B0523C00B3D085 /* TransactionListView.swift in Sources */,
 				3CE226B126B03DC600B3D085 /* ModelData.swift in Sources */,
 				3CE2268426B007D200B3D085 /* TechChallengeApp.swift in Sources */,

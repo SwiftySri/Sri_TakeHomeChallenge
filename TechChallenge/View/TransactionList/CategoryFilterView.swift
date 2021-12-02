@@ -8,14 +8,17 @@
 import SwiftUI
 
 struct CategoryFilterView: View {
+    @Binding var selectedCatgory: TransactionModel.Category?
     var body: some View {
         ScrollView(.horizontal) {
             HStack {
-                Button("all"){}
+                Button("all"){ selectedCatgory = nil }
                     .buttonStyle(FilterButtonStyle(color: .black))
                 
                 ForEach(TransactionModel.Category.allCases) { eachCategory in
-                    Button(eachCategory.rawValue) {}
+                    Button(eachCategory.rawValue) {
+                        selectedCatgory = eachCategory
+                    }
                         .buttonStyle(FilterButtonStyle(color: eachCategory.color))
                 }
             }
@@ -27,6 +30,6 @@ struct CategoryFilterView: View {
 
 struct CategoryFilterView_Previews: PreviewProvider {
     static var previews: some View {
-        CategoryFilterView()
+        CategoryFilterView(selectedCatgory: .constant(.none))
     }
 }
