@@ -17,6 +17,5 @@ struct FilterButtonStyle: ButtonStyle {
             .padding(.vertical, 5)
             .background(color, in: Capsule())
             .opacity(configuration.isPressed ? 0.5 : 1.0)
-            .scaleEffect(configuration.isPressed ? 0.8 : 1.0)
     }
 }

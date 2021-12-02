@@ -8,8 +8,13 @@
 import Foundation
 
 class TransactionListViewModel: ObservableObject {
+    
     private (set) var transactions: [TransactionModel] = ModelData.sampleTransactions
     
+    @Published var ignoredTransactions: Set<TransactionModel> = [] {
+        didSet { computeSum() }
+    }
+
     @Published var selectedCategory: TransactionModel.Category? {
         didSet {
             if let chosenCategory = selectedCategory {
@@ -31,7 +36,8 @@ class TransactionListViewModel: ObservableObject {
     
     private func computeSum() {
         var runningSum = 0.0
-        runningSum = transactions.reduce(0.0) { $0 + $1.amount }
+        let unpinnedTransactions = Set(transactions).subtracting(ignoredTransactions)
+        runningSum = unpinnedTransactions.reduce(0.0) { $0 + $1.amount }
         displaySum = String(format: "$%.2f", runningSum)
     }
 }

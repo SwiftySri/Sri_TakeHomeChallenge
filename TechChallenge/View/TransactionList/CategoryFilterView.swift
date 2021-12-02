@@ -24,7 +24,7 @@ struct CategoryFilterView: View {
             }
             .padding()
         }
-        .background(Color.accentColor.opacity(0.8))
+        .background(Color.accentColor.opacity(0.8).edgesIgnoringSafeArea(.horizontal))
     }
 }
 
