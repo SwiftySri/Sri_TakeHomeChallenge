@@ -44,21 +44,26 @@ struct RingView: View {
     var body: some View {
         ZStack {
             ForEach(Category.allCases.indices) { categoryIndex in
-                PartialCircleShape(
-                    offset: offset(for: categoryIndex),
-                    ratio: ratio(for: categoryIndex)
-                )
-                .stroke(
-                    gradient(for: categoryIndex),
-                    style: StrokeStyle(lineWidth: 28.0, lineCap: .butt)
-                )
-                .overlay(
-                    PercentageText(
-                        offset: offset(for: categoryIndex),
-                        ratio: ratio(for: categoryIndex),
-                        text: percentageText(for: categoryIndex)
+                let categoryOffset = offset(for: categoryIndex)
+                let categoryratio = ratio(for: categoryIndex)
+                
+                if categoryratio > 0.0 {
+                    PartialCircleShape(
+                        offset: categoryOffset,
+                        ratio: categoryratio
                     )
-                )
+                    .stroke(
+                        gradient(for: categoryIndex),
+                        style: StrokeStyle(lineWidth: 28.0, lineCap: .butt)
+                    )
+                    .overlay(
+                        PercentageText(
+                            offset: categoryOffset,
+                            ratio: categoryratio,
+                            text: percentageText(for: categoryIndex)
+                        )
+                    )
+                }
             }
         }
     }

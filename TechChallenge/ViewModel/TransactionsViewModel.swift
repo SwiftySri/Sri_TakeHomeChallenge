@@ -24,9 +24,7 @@ class TransactionsViewModel: ObservableObject {
     @Published var selectedCategory: TransactionModel.Category? {
         didSet {
             if let chosenCategory = selectedCategory {
-                transactions = ModelData.sampleTransactions.filter {
-                    $0.category == chosenCategory
-                }
+                transactions = ModelData.sampleTransactions.filter { $0.category == chosenCategory }
             } else {
                 transactions = ModelData.sampleTransactions
             }
