@@ -32,6 +32,6 @@ class TransactionListViewModel: ObservableObject {
     private func computeSum() {
         var runningSum = 0.0
         runningSum = transactions.reduce(0.0) { $0 + $1.amount }
-        displaySum = String(format: "%.2f", runningSum)
+        displaySum = String(format: "$%.2f", runningSum)
     }
 }
