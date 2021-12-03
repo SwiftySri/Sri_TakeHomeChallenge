@@ -9,7 +9,9 @@ import Foundation
 
 class TransactionsViewModel: ObservableObject {
     
-    private (set) var transactions: [TransactionModel] = ModelData.sampleTransactions
+    private (set) var transactions: [TransactionModel]
+    private let allTransactions: [TransactionModel]
+    
     var transactionsTotal: Double = 0.0
     @Published var listTotal: Double = 0.0
     @Published var categoryTotalMap: [TransactionModel.Category: Double] = [:]
@@ -24,17 +26,18 @@ class TransactionsViewModel: ObservableObject {
     @Published var selectedCategory: TransactionModel.Category? {
         didSet {
             if let chosenCategory = selectedCategory {
-                transactions = ModelData.sampleTransactions.filter { $0.category == chosenCategory }
+                transactions = allTransactions.filter { $0.category == chosenCategory }
             } else {
-                transactions = ModelData.sampleTransactions
+                transactions = allTransactions
             }
             computeSum()
         }
     }
     
-    init() {
-        computeSum()
-        computeCategorySum()
+    init(transactions: [TransactionModel] = ModelData.sampleTransactions) {
+        self.transactions = transactions
+        self.allTransactions = transactions
+        self.ignoredTransactions = []
     }
     
     private func computeSum() {
