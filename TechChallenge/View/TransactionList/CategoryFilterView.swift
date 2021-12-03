@@ -19,7 +19,7 @@ struct CategoryFilterView: View {
                     Button(eachCategory.rawValue) {
                         selectedCatgory = eachCategory
                     }
-                        .buttonStyle(FilterButtonStyle(color: eachCategory.color))
+                    .buttonStyle(FilterButtonStyle(color: eachCategory.color))
                 }
             }
             .padding()

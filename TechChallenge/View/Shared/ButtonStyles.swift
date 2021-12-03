@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+/// Button style for applying to Button view which needs to be styled as Filter tokens
 struct FilterButtonStyle: ButtonStyle {
     let color: Color
     func makeBody(configuration: Self.Configuration) -> some View {
